@@ -1,6 +1,6 @@
 {
   "name": "mediacenterjs-plugin-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "MediacenterJS plugin generator",
   "main": "plugin-generator.js",
   "keywords": [
