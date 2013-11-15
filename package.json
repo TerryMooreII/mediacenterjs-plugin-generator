@@ -1,0 +1,21 @@
+{
+  "name": "mediacenterjs-plugin-generator",
+  "version": "0.0.1",
+  "description": "MediacenterJS plugin generator",
+  "main": "plugin-generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mediacenterjs",
+    "plugin",
+    "generator"
+  ],
+  "author": "Terry Moore",
+  "license": "MIT",
+  "dependencies": {
+    "async": "~0.2.9",
+    "prompt": "~0.2.11"
+  },
+  "start": "plugin-generator.js"
+}
