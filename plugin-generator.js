@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 
 var async = require('async')
  , exec = require('child_process').exec	
@@ -7,7 +7,8 @@ var async = require('async')
  , PLUGIN_PREFIX = 'mediacenterjs-'
  , GIT_TEMPLATE_NAME = 'mediacenterjs-plugin-template'
  , GIT_TEMPLATE_URL = 'https://github.com/TerryMooreII/' +  GIT_TEMPLATE_NAME + '.git'
- , basePath = __dirname + '/'
+ //, basePath = __dirname + '/'
+ , basePath = './'
  , answers;
 
 var schema = {
@@ -70,7 +71,7 @@ async.waterfall([
 		});
 	},
 	function(pluginName, callback){
-		rename(basePath + GIT_TEMPLATE_NAME, __dirname + '/' + pluginName, function(err){
+		rename(basePath + GIT_TEMPLATE_NAME, basePath + '/' + pluginName, function(err){
 			if (err){
 				callback('Unable to rename plugin: ' + err);
 				return;
