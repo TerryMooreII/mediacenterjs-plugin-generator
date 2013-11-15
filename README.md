@@ -6,17 +6,16 @@ Generator script to stream line creation of MediacenterJS plugins.
 
 ##How to use:
 
+Install the mediacenterjs-plugin-generator **globally**
 ```
-git clone https://github.com/TerryMooreII/mediacenterjs-plugin-generator.git
-cd mediacenter-plugin-generator
-npm install
-node plugin-generator.js
-```
-
-This will download the plugin template generator and then kick off the script. All you have to do is answer a few questions.
+npm install mediacenterjs-plugin-generator -g
 
 ```
-node plugin-generator.js 
+
+Since the plugin generator is installed globally you can now navigate to an empty directory in you terminal window and run `mediacenterjs-plugin-generator` then answer a few questions.
+
+```
+mediacenterjs-plugin-generator
 prompt: Plugin Name (Letters and Dashes only):  Awesome Plugin Name
 prompt: Short description of the plugin.:  This plugin is going to do awesome things
 prompt: Author:  Terry Moore
