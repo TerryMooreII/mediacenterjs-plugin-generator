@@ -135,16 +135,38 @@ async.waterfall([
 			if (err)
 				return callback('Unable to create json file.')
 
-			console.log('Plug-in created successfully.');
-			console.log('Go forth and create something cool!');
-			callback(null);
+			callback(null, pluginName);
 		})
+	},
+	function(pluginName, callback){
+		var path = basePath + pluginName + '/.git';
+
+		deleteFolderRecursive(path);
+		callback(null)
+	},
+	function(callback){
+		console.log('Plug-in created successfully.');
+		console.log('Go forth and create something cool!');
+		callback(null);	
 	}
 ], function(err){
 	if(err)
 		console.log('Async error: ' + err);
 });
 
+var deleteFolderRecursive = function(path){
+  	if( fs.existsSync(path) ) {
+    	fs.readdirSync(path).forEach(function(file,index){
+      		var curPath = path + "/" + file;
+      		if(fs.statSync(curPath).isDirectory()) { // recurse
+        		deleteFolderRecursive(curPath);
+		    } else { // delete file
+				fs.unlinkSync(curPath);
+      		}
+   		});
+    	fs.rmdirSync(path);
+	}	
+};
 
 var gitClonePluginTemplate = function(callback){
 	exec('git clone ' + GIT_TEMPLATE_URL, callback);
@@ -152,7 +174,7 @@ var gitClonePluginTemplate = function(callback){
 
 var deleteItem = function(file, callback){
 	fs.unlink(file, callback)
-}
+};
 
 var rename = function(oldPath, newPath, callback){
 	fs.rename(oldPath, newPath, callback);
